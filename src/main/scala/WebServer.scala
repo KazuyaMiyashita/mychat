@@ -8,13 +8,13 @@ import akka.actor.ActorSystem
 
 object WebServer {
 
-  def apply(router: Router): Behavior[NotUsed] = {
+  def apply(router: Router, interface: String, port: Int): Behavior[NotUsed] = {
     Behaviors.setup { context =>
       implicit val system: ActorSystem          = context.system.classicSystem
       implicit val ec: ExecutionContextExecutor = system.dispatcher
 
       val serverSource: Source[Http.IncomingConnection, Future[Http.ServerBinding]] =
-        Http().newServerAt("0.0.0.0", 8080).connectionSource()
+        Http().newServerAt(interface, port).connectionSource()
       val bindingFuture: Future[Http.ServerBinding] =
         serverSource
           .to(Sink.foreach { connection => // foreach materializes the source
