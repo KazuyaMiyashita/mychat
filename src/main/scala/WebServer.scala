@@ -14,7 +14,7 @@ object WebServer {
       implicit val ec: ExecutionContextExecutor = system.dispatcher
 
       val serverSource: Source[Http.IncomingConnection, Future[Http.ServerBinding]] =
-        Http().newServerAt("localhost", 8080).connectionSource()
+        Http().newServerAt("0.0.0.0", 8080).connectionSource()
       val bindingFuture: Future[Http.ServerBinding] =
         serverSource
           .to(Sink.foreach { connection => // foreach materializes the source
