@@ -1,4 +1,5 @@
 import akka.actor.typed.ActorSystem
+import app.Initializer
 
 object Main extends App {
 
@@ -8,5 +9,10 @@ object Main extends App {
   val system = ActorSystem(Initializer(interface, port), "main")
 
   println(s"\nServer online at http://$interface:$port/\nPress RETURN to stop...\n")
+
+  if (sys.env.get("ENV").contains("LOCAL")) {
+    scala.io.StdIn.readLine()
+    system.terminate()
+  }
 
 }

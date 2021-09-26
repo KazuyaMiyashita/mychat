@@ -1,7 +1,9 @@
+package app
+
+import akka.NotUsed
+import akka.http.scaladsl.model._
 import akka.stream.Materializer
 import akka.stream.scaladsl.{Flow, Source}
-import akka.http.scaladsl.model.{HttpEntity, HttpMethod, HttpRequest, HttpResponse, Uri}
-import akka.NotUsed
 
 trait Router {
 

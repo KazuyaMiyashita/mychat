@@ -1,11 +1,12 @@
+package app
+
 import java.nio.charset.StandardCharsets
 
-import akka.stream.scaladsl.{Flow, Source}
-import akka.http.scaladsl.model.{HttpRequest, HttpResponse, HttpEntity, ContentTypes}
-import akka.util.ByteString
 import akka.NotUsed
-
-import RequestHelper._
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpRequest, HttpResponse}
+import akka.stream.scaladsl.{Flow, Source}
+import akka.util.ByteString
+import app.RequestHelper.{Decoder, Encoder}
 
 class RequestHelper {
 

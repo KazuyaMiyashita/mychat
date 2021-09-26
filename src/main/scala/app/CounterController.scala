@@ -1,12 +1,14 @@
+package app
+
 import akka.NotUsed
 import akka.actor.typed.ActorRef
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream.scaladsl.Flow
 import akka.stream.typed.scaladsl.ActorFlow
 import akka.util.Timeout
+import io.circe.{Encoder, Json}
 
 import scala.concurrent.duration._
-import io.circe.{Encoder, Json}
 
 class CounterController(
     counter: ActorRef[Counter.Command],

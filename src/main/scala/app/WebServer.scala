@@ -1,10 +1,13 @@
-import scala.concurrent.{ExecutionContextExecutor, Future}
-import akka.actor.typed.{Behavior, Terminated}
-import akka.actor.typed.scaladsl.Behaviors
-import akka.stream.scaladsl.{Sink, Source}
-import akka.http.scaladsl.Http
+package app
+
 import akka.NotUsed
 import akka.actor.ActorSystem
+import akka.actor.typed.scaladsl.Behaviors
+import akka.actor.typed.{Behavior, Terminated}
+import akka.http.scaladsl.Http
+import akka.stream.scaladsl.{Sink, Source}
+
+import scala.concurrent.{ExecutionContextExecutor, Future}
 
 object WebServer {
 
