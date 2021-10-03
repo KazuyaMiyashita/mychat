@@ -18,4 +18,8 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-http"         % AkkaHttpVersion
   )
 
+  lazy val typesafeConfig = "com.typesafe" % "config" % "1.4.0"
+
+  lazy val logbackClassic = "ch.qos.logback" % "logback-classic" % "1.2.6"
+
 }

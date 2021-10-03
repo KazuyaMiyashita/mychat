@@ -17,6 +17,10 @@ lazy val root = (project in file("."))
     name := "mychat",
     testSettings,
     libraryDependencies ++= Seq(
+      typesafeConfig,
+      logbackClassic % Runtime
+    ),
+    libraryDependencies ++= Seq(
       circe,
       akka
     ).flatten.map(_.cross(CrossVersion.for3Use2_13))
